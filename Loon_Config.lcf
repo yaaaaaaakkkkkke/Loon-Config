@@ -135,7 +135,9 @@ https://loon.103516.xyz/Plugin/Sub-Store.lpx, policy=故障转移, enabled=true
 https://loon.103516.xyz/Plugin/BoxJs.lpx, policy=故障转移, enabled=true
 
 [MITM]
+# 说明：不写 ca-p12 / ca-passphrase 两行。
+# Loon 对配置中「缺失」的证书字段会保留本地已生成/已信任的 CA，更新配置不丢证书。
+# 切勿写成 `ca-p12 = ` 空值——空值会覆盖并清空本地证书。
+# hostname 按需填写要解密的域名，多个用逗号分隔。
 hostname = 
-ca-p12 = 
-ca-passphrase = 
 skip-server-cert-verify = false
