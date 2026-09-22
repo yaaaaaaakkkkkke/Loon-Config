@@ -1,7 +1,8 @@
 # Loon 配置文件
-# 描述：融合 iBL3ND(Egern) 分流策略的 Loon 配置，采用 sooyaaabo(LoonLab) 结构风格
-# 参考: https://github.com/IBL3ND/Egern  |  https://github.com/sooyaaabo/LoonLab
-# 版本: 1.0.0
+# 描述：节点分类采用 iBL3ND(Egern) 极简思路——所有节点平铺，不按地区正则拆分；
+#       规则仅分「国内直连 / 其余走代理」，避免因机场命名不规范导致地区筛选失败。
+# 参考: https://github.com/IBL3ND/Egern  |  结构风格 https://github.com/sooyaaabo/LoonLab
+# 版本: 2.0.0
 
 [General]
 # IP查询模式
@@ -50,63 +51,27 @@ bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,1
 
 
 [Remote Filter]
-Sub-ALL = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|好友|失联|总计|重置|重新|设置|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-Sub-HK = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
-Sub-TW = NameRegex, FilterKey = "^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
-Sub-JP = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
-Sub-KR = NameRegex, FilterKey = "^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
-Sub-SG = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
-Sub-US = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
-Sub-RA = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)🇭🇰|🇹🇼|🇯🇵|🇰🇷|🇸🇬|🇺🇸|香港|台湾|日本|川日|东京|大阪|泉日|埼玉|韩国|韓|首尔|新加坡|狮|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|好友|失联|总计|重置|重新|设置|回国|校园|游戏|🎮|(\b(HK|HKG|Hong|TW|TWN|Tai|Taiwan|JP|JPN|Japan|KR|KOR|Korea|SG|SGP|Singapore|US|USA|United States|America|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+# 仅一个总过滤器：纳入所有有效节点，排除机场信息类节点（流量/到期/官网等）。
+# 不做地区拆分——节点命名不规范时也不会「筛不出」。
+Sub-ALL = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|好友|失联|总计|重置|重新|设置|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 
 [Proxy Group]
-PROXY = select,时延优选,故障转移,手动选择,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Rare Areas,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/Select.png
-手动选择 = select,DIRECT,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Rare Areas,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/Select.png
-时延优选 = url-test,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/UrlTest.png
-故障转移 = fallback,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,interval = 60,max-timeout = 2000,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/Fallback.png
-负载均衡 = load-balance,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,interval = 60,max-timeout = 2000,algorithm = pcc,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/LoadBalance.png
-Hong Kong = url-test,Sub-HK,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Flag/HongKong.png
-Taiwan = url-test,Sub-TW,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Flag/Taiwan.png
-Japan = url-test,Sub-JP,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Flag/Japan.png
-South Korea = url-test,Sub-KR,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Flag/SouthKorea.png
-Singapore = url-test,Sub-SG,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Flag/Singapore.png
-United States = url-test,Sub-US,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Flag/UnitedStates.png
-Rare Areas = select,Sub-RA,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Flag/UnitedNations.png
-Apple = select,DIRECT,PROXY,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Apple-02.png
-AI = select,Sub-JP,Sub-SG,Sub-US,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Anthropic.png
-TikTok = select,PROXY,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/TikTok-02.png
-CryptoCurrency = select,PROXY,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Rare Areas,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Bitcoin-02.png
-Telegram = select,PROXY,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Telegram-01.png
-GitHub = select,PROXY,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/GitHub-02.png
-Google = select,PROXY,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Google.png
-Microsoft = select,PROXY,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Microsoft.png
-YouTube = select,PROXY,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/YouTube.png
-X = select,PROXY,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Twitter-02.png
+# iBL3ND 风格：PROXY 为唯一出口组，所有节点平铺其中，手动/自动选择。
+PROXY = select,自动选择,手动选择,DIRECT,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/Select.png
+手动选择 = select,Sub-ALL,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/Static.png
+自动选择 = url-test,Sub-ALL,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/UrlTest.png
+故障转移 = fallback,Sub-ALL,interval = 60,max-timeout = 2000,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/Fallback.png
 
 [Proxy Chain]
 
 
 [Rule]
-FINAL,故障转移
-# Local Rule
+FINAL,PROXY
+# 说明：分流去向仅 DIRECT / PROXY 两类（对应 iBL3ND rules 的思路）。
 # Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,IP-CIDR,IP-CIDR6,IP-ASN
-# Strategy:DIRECT,PROXY,REJECT
 # 请勿修改 CN REGION 规则的排序甚至删除
 
 [Remote Rule]
-# 应用分流（沿用 kelee/LoonLab 规则集，与 iBL3ND 的应用维度保持一致）
-https://rule.kelee.one/Loon/WeChat.lsr, policy=DIRECT, tag=WeChat, enabled=true
-https://loon.103516.xyz/Rule/Apple.lsr, policy=Apple, tag=Apple, enabled=true
-https://loon.103516.xyz/Rule/AI.lsr, policy=AI, tag=AI, enabled=true
-https://loon.103516.xyz/Rule/TikTok.lsr, policy=TikTok, tag=TikTok, enabled=true
-https://loon.103516.xyz/Rule/CryptoCurrency.lsr, policy=CryptoCurrency, tag=CryptoCurrency, enabled=true
-https://rule.kelee.one/Loon/Telegram.lsr, policy=Telegram, tag=Telegram, enabled=true
-https://rule.kelee.one/Loon/GitHub.lsr, policy=GitHub, tag=GitHub, enabled=true
-https://rule.kelee.one/Loon/Google.lsr, policy=Google, tag=Google, enabled=true
-https://rule.kelee.one/Loon/Microsoft.lsr, policy=Microsoft, tag=Microsoft, enabled=true
-https://rule.kelee.one/Loon/Twitter.lsr, policy=X, tag=X, enabled=true
-https://rule.kelee.one/Loon/YouTube.lsr, policy=YouTube, tag=YouTube, enabled=true
-https://rule.kelee.one/Loon/Global.lsr, policy=PROXY, tag=Global, enabled=true
 # 国内直连（对应 iBL3ND 的 China / ChinaIPs / ChinaMax 直连规则）
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/ChinaMax/ChinaMax.list, policy=DIRECT, tag=ChinaMax, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/ChinaIPs/ChinaIPs.list, policy=DIRECT, tag=ChinaIPs, enabled=true
@@ -131,8 +96,8 @@ updates.g.aaplimg.com = updates.cdn-apple.com.download.ks-cdn.com
 [Plugin]
 https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin=true, enabled=true
-https://loon.103516.xyz/Plugin/Sub-Store.lpx, policy=故障转移, enabled=true
-https://loon.103516.xyz/Plugin/BoxJs.lpx, policy=故障转移, enabled=true
+https://loon.103516.xyz/Plugin/Sub-Store.lpx, policy=PROXY, enabled=true
+https://loon.103516.xyz/Plugin/BoxJs.lpx, policy=PROXY, enabled=true
 
 [MITM]
 # 说明：不写 ca-p12 / ca-passphrase 两行。
