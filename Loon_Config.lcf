@@ -2,10 +2,7 @@
 # 描述：地区分组 + 增强 US 匹配（英文缩写/机场码/城市/emoji），保留兜底组防漏。
 #       分流策略参考 iBL3ND(Egern)，结构风格参考 sooyaaabo(LoonLab)。
 # 参考: https://github.com/IBL3ND/Egern  |  https://github.com/sooyaaabo/LoonLab
-# 版本: 3.0.1
-#   3.0.1 修复隔夜 DNS 失效：补 hijack-dns、剔除被墙 DoH、system 垫底、
-#          internet-test-url 换 generate_204、bypass-tun 补 198.18.0.0/15、
-#          ip-mode/dns-reject-mode 改用官方值、测速间隔 60s→300s
+# 版本: 3.0.1（DNS 修复，详见 GitHub commit）
 
 [General]
 ip-mode = ipv4-only
