@@ -2,7 +2,7 @@
 # 描述：地区分组 + 增强 US 匹配（英文缩写/机场码/城市/emoji），保留兜底组防漏。
 #       分流策略参考 iBL3ND(Egern)，结构风格参考 sooyaaabo(LoonLab)。
 # 参考: https://github.com/IBL3ND/Egern  |  https://github.com/sooyaaabo/LoonLab
-# 版本: 3.0.1（DNS 修复，详见 GitHub commit）
+# 版本: 3.0.2（快速故障判定 + 接口绑定优化）
 
 [General]
 ip-mode = ipv4-only
@@ -18,8 +18,8 @@ doh-server = https://doh.pub/dns-query,https://dns.alidns.com/dns-query
 hijack-dns = *:53
 # 系统服务/会缓存 Fake IP 的域名返回真实 IP，避免隔夜反查表失效
 real-ip = *.apple.com,*.icloud.com
-test-timeout = 5
-interface-mode = auto
+test-timeout = 3
+interface-mode = Performace
 domain-reject-mode = DNS
 dns-reject-mode = LOOPBACKIP
 sni-sniffing = true
@@ -55,7 +55,7 @@ Sub-RA = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)🇭🇰|🇯🇵|🇰🇷|
 PROXY = select,时延优选,故障转移,手动选择,Hong Kong,Japan,South Korea,Singapore,United States,Rare Areas,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/Select.png
 手动选择 = select,DIRECT,Hong Kong,Japan,South Korea,Singapore,United States,Rare Areas,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/Static.png
 时延优选 = url-test,Hong Kong,Japan,South Korea,Singapore,United States,interval = 300,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/UrlTest.png
-故障转移 = fallback,Hong Kong,Japan,South Korea,Singapore,United States,interval = 300,max-timeout = 2000,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/Fallback.png
+故障转移 = fallback,Hong Kong,Japan,South Korea,Singapore,United States,interval = 300,max-timeout = 1500,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Other/Fallback.png
 Hong Kong = url-test,Sub-HK,interval = 300,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Flag/HongKong.png
 Japan = url-test,Sub-JP,interval = 300,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Flag/Japan.png
 South Korea = url-test,Sub-KR,interval = 300,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Flag/SouthKorea.png
