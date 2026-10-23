@@ -114,6 +114,7 @@ updates.g.aaplimg.com = updates.cdn-apple.com.download.ks-cdn.com
 
 
 [Plugin]
+https://raw.githubusercontent.com/yaaaaaaakkkkkke/Loon-Config/main/JD_Signin.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Taobao_remove_ads.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/FleaMarket_remove_ads.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Amap_remove_ads.lpx, pin=true, enabled=true
