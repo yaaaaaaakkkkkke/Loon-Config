@@ -114,6 +114,20 @@ updates.g.aaplimg.com = updates.cdn-apple.com.download.ks-cdn.com
 
 
 [Plugin]
+https://kelee.one/Tool/Loon/Lpx/Taobao_remove_ads.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/FleaMarket_remove_ads.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Amap_remove_ads.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/DidaPincheTaxi_remove_ads.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/AppleWeatherEnhancer.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Script-Hub.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Beike_remove_ads.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/DingdongMaicai_remove_ads.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/JD_remove_ads.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/PinDuoDuo_remove_ads.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/smzdm_remove_ads.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/MailMaster_remove_ads.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/XiaomiSpeaker_remove_ads.lpx, pin=true, enabled=true
 https://raw.githubusercontent.com/yaaaaaaakkkkkke/Loon-Config/main/PingMe.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin=true, enabled=true
