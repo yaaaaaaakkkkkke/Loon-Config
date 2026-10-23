@@ -1,11 +1,13 @@
 #!name = 京东签到 (NobyDa)
-#!desc = 京东领京豆自动签到。首次使用：Safari打开 bean.m.jd.com/bean/signIndex.action 抓取Cookie（每次抓取都会弹通知），之后每天8:15自动签到并通知结果。勿在京东App内抓取。脚本作者 NobyDa。
-#!author = NobyDa / Moli-X
+#!desc = 京东领京豆自动签到。抓Cookie：Safari登录 m.jd.com → 点「我的」→ 弹「Cookie成功」通知（每次抓取都会通知）。每天8:15自动签到并通知结果。勿在京东App内抓取。脚本作者 NobyDa。
+#!author = NobyDa
 #!icon = https://raw.githubusercontent.com/NobyDa/mini/master/Color/jd.png
 #!date = 2026-10-23
 
 [Script]
-http-request ^https:\/\/(api\.m|me-api)\.jd\.com\/(client\.action\?functionId=signBean|user_new\/info\/GetJDUserInfoUnion\?) script-path=https://raw.githubusercontent.com/yaaaaaaakkkkkke/Loon-Config/main/JD_CookieNotify.js, requires-body=false, timeout=60, tag=京东获取Cookie, enable=true
+http-request ^https:\/\/api\.m\.jd\.com\/client\.action.*functionId=signBean(Index|GroupStageIndex)? script-path=https://raw.githubusercontent.com/yaaaaaaakkkkkke/Loon-Config/main/JD_CookieNotify.js, requires-body=false, timeout=60, tag=京东获取Cookie, enable=true
+
+http-request ^https:\/\/(api\.m|me-api)\.jd\.com\/user_new\/info\/GetJDUserInfoUnion script-path=https://raw.githubusercontent.com/yaaaaaaakkkkkke/Loon-Config/main/JD_CookieNotify.js, requires-body=false, timeout=60, tag=京东用户信息获取Cookie, enable=true
 
 http-request ^https:\/\/ms\.jr\.jd\.com\/gw\/generic\/hy\/h5\/m\/appSign\? script-path=https://raw.githubusercontent.com/yaaaaaaakkkkkke/Loon-Config/main/JD_CookieNotify.js, requires-body=false, timeout=60, tag=京东金融获取Cookie, enable=true
 
