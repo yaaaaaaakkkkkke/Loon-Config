@@ -128,7 +128,7 @@ https://kelee.one/Tool/Loon/Lpx/PinDuoDuo_remove_ads.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/smzdm_remove_ads.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/MailMaster_remove_ads.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/XiaomiSpeaker_remove_ads.lpx, pin=true, enabled=true
-https://raw.githubusercontent.com/yaaaaaaakkkkkke/Loon-Config/main/PingMe.lpx, pin=true, enabled=true
+https://axhani.pages.dev/refs/heads/main/Loon/Plugin/PingMe.plugin, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin=true, enabled=true
 https://loon.103516.xyz/Plugin/Sub-Store.lpx, policy=故障转移, enabled=true
