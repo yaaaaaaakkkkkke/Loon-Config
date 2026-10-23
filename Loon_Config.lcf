@@ -114,6 +114,10 @@ updates.g.aaplimg.com = updates.cdn-apple.com.download.ks-cdn.com
 
 
 [Plugin]
+https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin=true, enabled=true
+https://loon.103516.xyz/Plugin/Sub-Store.lpx, policy=故障转移, enabled=true
+https://loon.103516.xyz/Plugin/BoxJs.lpx, policy=故障转移, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Taobao_remove_ads.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/FleaMarket_remove_ads.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Amap_remove_ads.lpx, pin=true, enabled=true
@@ -129,10 +133,6 @@ https://kelee.one/Tool/Loon/Lpx/smzdm_remove_ads.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/MailMaster_remove_ads.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/XiaomiSpeaker_remove_ads.lpx, pin=true, enabled=true
 https://axhani.pages.dev/refs/heads/main/Loon/Plugin/PingMe.plugin, pin=true, enabled=true
-https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin=true, enabled=true
-https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin=true, enabled=true
-https://loon.103516.xyz/Plugin/Sub-Store.lpx, policy=故障转移, enabled=true
-https://loon.103516.xyz/Plugin/BoxJs.lpx, policy=故障转移, enabled=true
 
 [MITM]
 # 说明：不写 ca-p12 / ca-passphrase 两行。
